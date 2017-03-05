@@ -3,7 +3,7 @@ file = open("DATA12.txt")
 
 def test_case():
     # Read weights from file and map to ints
-    weights = list(map(float, file.readline().split(" ")))
+    weights = list(map(float, file.readline().split()))
     # Number of students
     n = int(file.readline())
     # How many students passed. We will output this in the end
