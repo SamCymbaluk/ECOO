@@ -4,9 +4,11 @@ file = open("DATA21.txt")
 # This solution is completely brute-force and has a complexity of O(n^3)
 # There is almost certainly a quicker solution but with n <= 5000 and simplification allowing n <= 100, this works
 def calc_output(result, spinner_nums):
+    # Iterate though all possible spinner values
     for num1 in spinner_nums:
         for num2 in spinner_nums:
             for num3 in spinner_nums:
+                # Try out all the possibilities given the 3 spinner values
                 if num1 + num2 + num3 == result \
                         or (num1 + num2) * num3 == result \
                         or num1 * num2 * num3 == result \
@@ -23,9 +25,11 @@ def test_case():
     # Spinner values can only be 1 <= s <= 100 so we can simplify the list greatly
     spinner_vals = [False] * 101
     spinner_nums = []
+    # Here we determine which numbers 0 - 100 are on the spinner
     for num in map(int, file.readline().split(" ")):
         spinner_vals[num] = True
 
+    # Now we populate the spinner_num array with the values found above
     for i in range(0, 101):
         if spinner_vals[i]:
             spinner_nums.append(i)
